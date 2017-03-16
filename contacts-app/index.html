@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="indexStyle.css">
+    <script src="jquery-3.1.1.js"></script>
+    <title>Contacts-app</title>
+</head>
+<body>
+<div id="wrapper">
+    <div id="newcontact">
+        <h2>New Contact</h2>
+        <p>First name<input id="firstName" type="text"></p>
+        <p>Last name<input id="lastName" type="text"></p>
+        <p>Phone<input id="phone" type="text"></p>
+        <p>Street address<input id="address" type="text"></p>
+        <p>City<input id="city" type="text"></p>
+        <button onclick="newContact()">Add</button>
+    </div>
+
+    <div id="contacts">
+        <h2>Contacts</h2>
+        <table id="contactsTable">
+            <thead>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone</th>
+            <th>Street address</th>
+            <th>City</th>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var table = document.getElementById('contactsTable');
+    var contacts = [];
+
+    function main() {
+        $('#wrapper').hide();
+        $('#wrapper').fadeIn(500);
+    }
+    $(document).ready(main);
+
+    function newContact() {
+        $("#tableBody, tr").remove();
+        var contact = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            phone: document.getElementById(('phone')).value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value
+        }
+        contacts.push(contact);
+
+        updateContacts();
+    }
+
+    function updateContacts() {
+        for (var i = 0; i < contacts.length; i++){
+            var row = table.insertRow(1);
+            var firstNameCell = row.insertCell(0);
+            var lastNameCell = row.insertCell(1);
+            var phoneCell = row.insertCell(2);
+            var addressCell = row.insertCell(3);
+            var cityCell = row.insertCell(4);
+
+            firstNameCell.innerHTML = contacts[i].firstName;
+            lastNameCell.innerHTML = contacts[i].lastName;
+            phoneCell.innerHTML = contacts[i].phone;
+            addressCell.innerHTML = contacts[i].address;
+            cityCell.innerHTML = contacts[i].city;
+        }
+    }
+</script>
+
+</body>
+</html>

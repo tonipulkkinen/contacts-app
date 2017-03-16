@@ -1,0 +1,36 @@
+body {
+    background-color: whitesmoke;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+#newcontact {
+    display: table;
+    padding: 30px;
+    background-color: white;
+}
+
+#contacts {
+    display: table;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: white;
+}
+
+input {
+    float: right;
+    margin-left: 20px;
+}
+
+button {
+    width: 100px;
+    float: right;
+}
+
+table, th, td {
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
