@@ -46,7 +46,6 @@
     $(document).ready(main);
 
     function newContact() {
-        $("#tableBody, tr").remove();
         var contact = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
@@ -60,8 +59,9 @@
     }
 
     function updateContacts() {
+        var rows = '';
         for (var i = 0; i < contacts.length; i++){
-            var row = table.insertRow(1);
+            var row = '<tr></tr>';
             var firstNameCell = row.insertCell(0);
             var lastNameCell = row.insertCell(1);
             var phoneCell = row.insertCell(2);
@@ -73,7 +73,10 @@
             phoneCell.innerHTML = contacts[i].phone;
             addressCell.innerHTML = contacts[i].address;
             cityCell.innerHTML = contacts[i].city;
+
+            rows += row;
         }
+        document.getElementById('tableBody').innerHTML = rows;
     }
 </script>
 
