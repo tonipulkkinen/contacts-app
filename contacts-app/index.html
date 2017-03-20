@@ -6,8 +6,9 @@
 
     <link rel="stylesheet" type="text/css" href="indexStyle.css">
     <script src="libs/lodash.min.js"></script>
-    <script src="jquery-3.1.1.js"></script>
+    <script src="libs/jquery-3.1.1.js"></script>
     <script src="app.js"></script>
+    <script src="contact.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -47,14 +48,7 @@
     $(document).ready(main);
 
     function newContact() {
-        var contact = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            phone: document.getElementById(('phone')).value,
-            address: document.getElementById('address').value,
-            city: document.getElementById('city').value
-        };
-        contacts.push(contact);
+        contacts.push(buildContact());
         updateContacts();
 
         document.getElementById('firstName').value = '';
@@ -64,6 +58,16 @@
         document.getElementById('city').value = '';
     }
 
+    function buildContact() {
+        return contactsApp.contact(
+            document.getElementById('firstName').value,
+            document.getElementById('lastName').value,
+            document.getElementById(('phone')).value,
+            document.getElementById('address').value,
+            document.getElementById('city').value
+        )
+    }
+
     function updateContacts() {
         var rows = '';
         for (var i = 0; i < contacts.length; i++) {
@@ -71,7 +75,7 @@
                 '<td>' + contacts[i].firstName + '</td>' +
                 '<td>' + contacts[i].lastName + '</td>' +
                 '<td>' + contacts[i].phone + '</td>' +
-                '<td>' + contacts[i].address + ', ' + contacts[i].city + '</td>' +
+                '<td>' + contacts[i].address + '</td>' +
                 '</tr>';
         }
         document.getElementById('tableBody').innerHTML = rows;

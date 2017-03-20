@@ -4,6 +4,6 @@ contactsApp.contact = function (firstName, lastName, phone, streetAddress, city)
         firstName: firstName,
         lastName: lastName,
         phone: phone,
-        address: parseAddress(streetAddress, city)
+        address: streetAddress + ', ' + city
     }
 };
