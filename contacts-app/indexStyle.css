@@ -6,17 +6,21 @@ h2 {
     margin-top: 0;
 }
 
-#newcontact {
+#newContact {
     display: table;
     padding: 30px;
+    margin: auto;
     background-color: white;
+    box-shadow: 0px 0px 10px #888888;
 }
 
 #contacts {
     display: table;
-    margin-top: 20px;
     padding: 30px;
+    margin : 20px auto 0 auto;
     background-color: white;
+    box-shadow: 0px 0px 10px #888888;
+
 }
 
 input {

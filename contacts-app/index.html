@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="indexStyle.css">
-    <script src="jquery-3.1.1.js"></script>
     <title>Contacts-app</title>
+
+    <link rel="stylesheet" type="text/css" href="indexStyle.css">
+    <script src="libs/lodash.min.js"></script>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="app.js"></script>
 </head>
 <body>
 <div id="wrapper">
-    <div id="newcontact">
+    <div id="newContact">
         <h2>New Contact</h2>
         <p>First name<input id="firstName" type="text"></p>
         <p>Last name<input id="lastName" type="text"></p>
@@ -25,8 +28,7 @@
             <th>First name</th>
             <th>Last name</th>
             <th>Phone</th>
-            <th>Street address</th>
-            <th>City</th>
+            <th>Address</th>
             </thead>
             <tbody id="tableBody">
 
@@ -36,7 +38,6 @@
 </div>
 
 <script>
-    var table = document.getElementById('contactsTable');
     var contacts = [];
 
     function main() {
@@ -52,29 +53,26 @@
             phone: document.getElementById(('phone')).value,
             address: document.getElementById('address').value,
             city: document.getElementById('city').value
-        }
+        };
         contacts.push(contact);
-
         updateContacts();
+
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('address').value = '';
+        document.getElementById('city').value = '';
     }
 
     function updateContacts() {
         var rows = '';
-        for (var i = 0; i < contacts.length; i++){
-            var row = '<tr></tr>';
-            var firstNameCell = row.insertCell(0);
-            var lastNameCell = row.insertCell(1);
-            var phoneCell = row.insertCell(2);
-            var addressCell = row.insertCell(3);
-            var cityCell = row.insertCell(4);
-
-            firstNameCell.innerHTML = contacts[i].firstName;
-            lastNameCell.innerHTML = contacts[i].lastName;
-            phoneCell.innerHTML = contacts[i].phone;
-            addressCell.innerHTML = contacts[i].address;
-            cityCell.innerHTML = contacts[i].city;
-
-            rows += row;
+        for (var i = 0; i < contacts.length; i++) {
+            rows += '<tr>' +
+                '<td>' + contacts[i].firstName + '</td>' +
+                '<td>' + contacts[i].lastName + '</td>' +
+                '<td>' + contacts[i].phone + '</td>' +
+                '<td>' + contacts[i].address + ', ' + contacts[i].city + '</td>' +
+                '</tr>';
         }
         document.getElementById('tableBody').innerHTML = rows;
     }
