@@ -81,11 +81,12 @@
         var contacts = contactsApp.contactStorage.getContacts();
         var rows = '';
         for (var i = 0; i < contacts.length; i++) {
+            var googleMaps = 'https://www.google.com/maps?q=' + contacts[i].address;
             rows += '<tr>' +
                 '<td>' + contacts[i].firstName + '</td>' +
                 '<td>' + contacts[i].lastName + '</td>' +
                 '<td>' + contacts[i].phone + '</td>' +
-                '<td>' + contacts[i].address + '</td>' +
+                '<td>' + '<a target="_blank" href="' + googleMaps + '">' + contacts[i].address + '</a></td>' +
                 '</tr>';
         }
         document.getElementById('tableBody').innerHTML = rows;
