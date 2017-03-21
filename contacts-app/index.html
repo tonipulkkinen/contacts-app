@@ -9,16 +9,17 @@
     <script src="libs/jquery-3.1.1.js"></script>
     <script src="app.js"></script>
     <script src="contact.js"></script>
+    <script src="contactStorage.js"></script>
 </head>
 <body>
 <div id="wrapper">
     <div id="newContact">
         <h2>New Contact</h2>
-        <p>First name<input id="firstName" type="text"></p>
-        <p>Last name<input id="lastName" type="text"></p>
-        <p>Phone<input id="phone" type="text"></p>
-        <p>Street address<input id="address" type="text"></p>
-        <p>City<input id="city" type="text"></p>
+        <p>First name<input id="firstName" class="inputField" type="text"></p>
+        <p>Last name<input id="lastName" class="inputField" type="text"></p>
+        <p>Phone<input id="phone" class="inputField" type="text"></p>
+        <p>Street address<input id="address" class="inputField" type="text"></p>
+        <p>City<input id="city" class="inputField" type="text"></p>
         <button onclick="newContact()">Add</button>
     </div>
 
@@ -39,7 +40,6 @@
 </div>
 
 <script>
-    var contacts = [];
 
     function main() {
         $('#wrapper').hide();
@@ -47,28 +47,38 @@
     }
     $(document).ready(main);
 
-    function newContact() {
-        contacts.push(buildContact());
-        updateContacts();
+    updateContacts();
 
-        document.getElementById('firstName').value = '';
-        document.getElementById('lastName').value = '';
-        document.getElementById('phone').value = '';
-        document.getElementById('address').value = '';
-        document.getElementById('city').value = '';
+    function newContact() {
+        if (document.getElementById('firstName').value && document.getElementById('lastName').value &&
+            document.getElementById(('phone')).value && document.getElementById('address').value &&
+            document.getElementById('city').value) {
+
+            contactsApp.contactStorage.saveContact(createContact());
+            updateContacts();
+
+            var elements = document.getElementsByClassName('inputField');
+            for (var i = 0; i < elements.length; i++){
+                elements[i].value = '';
+            }
+        }
+        else {
+            alert('Fill all fields!');
+        }
     }
 
-    function buildContact() {
+    function createContact() {
         return contactsApp.contact(
             document.getElementById('firstName').value,
             document.getElementById('lastName').value,
             document.getElementById(('phone')).value,
             document.getElementById('address').value,
             document.getElementById('city').value
-        )
+        );
     }
 
     function updateContacts() {
+        var contacts = contactsApp.contactStorage.getContacts();
         var rows = '';
         for (var i = 0; i < contacts.length; i++) {
             rows += '<tr>' +
