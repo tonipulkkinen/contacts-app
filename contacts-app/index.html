@@ -87,9 +87,15 @@
                 '<td>' + contacts[i].lastName + '</td>' +
                 '<td>' + contacts[i].phone + '</td>' +
                 '<td>' + '<a target="_blank" href="' + googleMaps + '">' + contacts[i].address + '</a></td>' +
+                '<td><button onclick="deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button>' +
+                '<button>Edit</button></td>' +
                 '</tr>';
         }
         document.getElementById('tableBody').innerHTML = rows;
+    }
+
+    function deleteContact(index) {
+        document.getElementById('tableBody').deleteRow(index - 1);
     }
 </script>
 
