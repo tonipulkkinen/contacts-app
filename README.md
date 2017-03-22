@@ -2,7 +2,7 @@
 
 Project where we train HTML, CSS and JavaScript
 
-Hours: 15
+Hours: 21
 
 Learned:
 
