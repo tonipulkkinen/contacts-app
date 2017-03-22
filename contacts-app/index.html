@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts-app</title>
 
     <link rel="stylesheet" type="text/css" href="indexStyle.css">
+    <link rel="stylesheet" href="./material.min.css">
+    <script src="./libs/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="libs/lodash.min.js"></script>
     <script src="libs/jquery-3.1.1.js"></script>
     <script src="app.js"></script>
@@ -20,7 +24,10 @@
         <p>Phone<input id="phone" class="inputField" type="text"></p>
         <p>Street address<input id="address" class="inputField" type="text"></p>
         <p>City<input id="city" class="inputField" type="text"></p>
-        <button onclick="newContact()">Add</button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="newContact()">
+            Add
+        </button>
+
     </div>
 
     <div id="contacts">
@@ -87,8 +94,8 @@
                 '<td>' + contacts[i].lastName + '</td>' +
                 '<td>' + contacts[i].phone + '</td>' +
                 '<td>' + '<a target="_blank" href="' + googleMaps + '">' + contacts[i].address + '</a></td>' +
-                '<td><button onclick="deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button>' +
-                '<button>Edit</button></td>' +
+                '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="newContact()">Edit</button></td>' +
+                '<td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button>' +
                 '</tr>';
         }
         document.getElementById('tableBody').innerHTML = rows;

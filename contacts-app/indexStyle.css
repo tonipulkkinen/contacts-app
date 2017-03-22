@@ -39,6 +39,7 @@ input {
 
 button {
     width: 75px;
+    height: 21px;
     float: right;
 }
 
