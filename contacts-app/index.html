@@ -12,26 +12,42 @@
     <script src="libs/lodash.min.js"></script>
     <script src="libs/jquery-3.1.1.js"></script>
     <script src="app.js"></script>
+    <script src="scripts.js"></script>
     <script src="contact.js"></script>
     <script src="contactStorage.js"></script>
 </head>
 <body>
 <div id="wrapper">
     <div id="newContact">
-        <h2>New Contact</h2>
-        <p>First name<input id="firstName" class="inputField" type="text"></p>
-        <p>Last name<input id="lastName" class="inputField" type="text"></p>
-        <p>Phone<input id="phone" class="inputField" type="text"></p>
-        <p>Street address<input id="address" class="inputField" type="text"></p>
-        <p>City<input id="city" class="inputField" type="text"></p>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="newContact()">
-            Add
-        </button>
-
+        <h2 style="font-size: 24px; margin: 10px 0 10px 0;">New Contact</h2>
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="firstName">
+                <label class="mdl-textfield__label" for="firstName">First name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="lastName">
+                <label class="mdl-textfield__label" for="lastName">Last name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="phone">
+                <label class="mdl-textfield__label" for="phone">Phone</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="address">
+                <label class="mdl-textfield__label" for="address">Street address</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="city">
+                <label class="mdl-textfield__label" for="city">City</label>
+            </div>
+        </form>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                onclick="contactsApp.scripts.newContact()">Add</button>
     </div>
 
     <div id="contacts">
-        <h2>Contacts</h2>
+        <h2 style="font-size: 24px; margin: 10px 0 10px 0;">Contacts</h2>
         <table id="contactsTable">
             <thead>
             <th>First name</th>
@@ -53,57 +69,8 @@
         $('#wrapper').fadeIn(500);
     }
     $(document).ready(main);
+    contactsApp.scripts.updateContacts();
 
-    updateContacts();
-
-    function newContact() {
-        if (document.getElementById('firstName').value && document.getElementById('lastName').value &&
-            document.getElementById(('phone')).value && document.getElementById('address').value &&
-            document.getElementById('city').value) {
-
-            contactsApp.contactStorage.saveContact(createContact());
-            updateContacts();
-
-            var elements = document.getElementsByClassName('inputField');
-            for (var i = 0; i < elements.length; i++){
-                elements[i].value = '';
-            }
-        }
-        else {
-            alert('Fill all fields!');
-        }
-    }
-
-    function createContact() {
-        return contactsApp.contact(
-            document.getElementById('firstName').value,
-            document.getElementById('lastName').value,
-            document.getElementById(('phone')).value,
-            document.getElementById('address').value,
-            document.getElementById('city').value
-        );
-    }
-
-    function updateContacts() {
-        var contacts = contactsApp.contactStorage.getContacts();
-        var rows = '';
-        for (var i = 0; i < contacts.length; i++) {
-            var googleMaps = 'https://www.google.com/maps?q=' + contacts[i].address;
-            rows += '<tr>' +
-                '<td>' + contacts[i].firstName + '</td>' +
-                '<td>' + contacts[i].lastName + '</td>' +
-                '<td>' + contacts[i].phone + '</td>' +
-                '<td>' + '<a target="_blank" href="' + googleMaps + '">' + contacts[i].address + '</a></td>' +
-                '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="newContact()">Edit</button></td>' +
-                '<td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button>' +
-                '</tr>';
-        }
-        document.getElementById('tableBody').innerHTML = rows;
-    }
-
-    function deleteContact(index) {
-        document.getElementById('tableBody').deleteRow(index - 1);
-    }
 </script>
 
 </body>

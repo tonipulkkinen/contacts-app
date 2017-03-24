@@ -24,6 +24,9 @@ contactsApp.contactStorage = (function () {
         },
         getContacts: function () {
             return getLocalStorageData();
+        },
+        deleteAllContacts: function () {
+            setLocalStorageData([]);
         }
     }
 })();
