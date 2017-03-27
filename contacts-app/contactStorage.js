@@ -1,19 +1,30 @@
 contactsApp.contactStorage = (function () {
 
-    var localStorageKey = 'ca-contacts';
+    var contactsKey = 'ca-contacts';
+    var editKey = 'ca-edit';
 
-    if (!localStorage.getItem(localStorageKey)) {
-        localStorage.setItem(localStorageKey, JSON.stringify([]));
+    if (!localStorage.getItem(contactsKey)) {
+        localStorage.setItem(contactsKey, JSON.stringify([]));
     }
 
     function getLocalStorageData() {
-        var storedData = localStorage.getItem(localStorageKey);
+        var storedData = localStorage.getItem(contactsKey);
         return JSON.parse(storedData);
     }
 
     function setLocalStorageData(incomingData) {
         var contacts = JSON.stringify(incomingData);
-        return localStorage.setItem(localStorageKey, contacts)
+        return localStorage.setItem(contactsKey, contacts)
+    }
+
+    function getEdit() {
+        var storedData = localStorage.getItem(editKey);
+        return JSON.parse(storedData);
+    }
+
+    function setEdit(givenEdit) {
+        var edit = JSON.stringify(givenEdit);
+        return localStorage.setItem(editKey, edit)
     }
 
     return {
@@ -27,6 +38,18 @@ contactsApp.contactStorage = (function () {
         },
         deleteAllContacts: function () {
             setLocalStorageData([]);
+        },
+        saveEdit: function (contact) {
+            setEdit(contact);
+        },
+        loadEdit: function () {
+            return getEdit();
+        },
+        finishEdit: function (contact, index) {
+            var contacts = getLocalStorageData();
+            index -= 1;
+            contacts[index] = contact;
+            setLocalStorageData(contacts);
         }
     }
 })();

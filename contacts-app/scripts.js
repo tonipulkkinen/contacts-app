@@ -1,4 +1,5 @@
 contactsApp.scripts = function() {
+    var editThisContact = 0;
 
     return {
         newContact: function () {
@@ -39,13 +40,34 @@ contactsApp.scripts = function() {
                     '<td>' + contacts[i].lastName + '</td>' +
                     '<td>' + contacts[i].phone + '</td>' +
                     '<td>' + '<a target="_blank" href="' + googleMaps + '">' + contacts[i].address + '</a></td>' +
-                    '<td><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Edit</button>' +
+                    '<td><a href="edit.html"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ' +
+                    'onclick="contactsApp.scripts.newEdit(this.parentNode.parentNode.parentNode.rowIndex)">Edit</button></a>' +
                     '<div class="break"></div>' +
                     '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ' +
                     'onclick="contactsApp.scripts.deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button></td>' +
                     '</tr>';
             }
             document.getElementById('tableBody').innerHTML = rows;
+        },
+
+        newEdit: function (index) {
+            var table = document.getElementById('contactsTable');
+
+            var firstName = table.rows[index].cells[0].innerHTML;
+            var lastName = table.rows[index].cells[1].innerHTML;
+            var phone = table.rows[index].cells[2].innerHTML;
+            var address = contactsApp.scripts.clearLinkFromAddress(table.rows[index].cells[3].innerHTML)
+            var street = address.split(',')[0];
+            var city = address.split(', ')[1];
+
+            contactsApp.contactStorage.saveEdit(contactsApp.contactE(
+                firstName,
+                lastName,
+                phone,
+                street,
+                city,
+                index
+            ));
         },
 
         deleteContact: function (index) {
