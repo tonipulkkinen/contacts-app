@@ -1,0 +1,9 @@
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\bin\Debug\netcoreapp1.1\contacts-app-server.deps.json
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\bin\Debug\netcoreapp1.1\contacts-app-server.runtimeconfig.json
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\bin\Debug\netcoreapp1.1\contacts-app-server.runtimeconfig.dev.json
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\bin\Debug\netcoreapp1.1\contacts-app-server.dll
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\bin\Debug\netcoreapp1.1\contacts-app-server.pdb
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\obj\Debug\netcoreapp1.1\contacts-app-server.csprojResolveAssemblyReference.cache
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\obj\Debug\netcoreapp1.1\contacts-app-server.AssemblyInfo.cs
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\obj\Debug\netcoreapp1.1\contacts-app-server.dll
+D:\dev\contacts-app\contacts-app-server\contacts-app-server\obj\Debug\netcoreapp1.1\contacts-app-server.pdb
