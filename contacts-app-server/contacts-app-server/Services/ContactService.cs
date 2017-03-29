@@ -13,8 +13,8 @@ namespace contacts_app_server.Services
         public ContactService()
         {
             _contacts = new List<Contact>();
-            _contacts.Add(new Contact(1, "Joku", "Randomi"));
-            _contacts.Add(new Contact(2, "Hermanni", "Heiluja"));
+            _contacts.Add(new Contact(1, "Joku", "Randomi", "346346345", "Randomkatu 5", "Randomila"));
+            _contacts.Add(new Contact(2, "Hermanni", "Heiluja", "87954575", "Hermanninkatu 9", "Hermannila"));
         }
 
         public List<Contact> FindAllContacts()
@@ -34,7 +34,18 @@ namespace contacts_app_server.Services
 
         public void SaveContact(Contact contact)
         {
-            _contacts.Add(new Contact(GetId(), contact.FirstName, contact.LastName));
+            _contacts.Add(new Contact(GetId(), contact.FirstName, contact.LastName, contact.Phone, contact.StreetAddress, contact.City));
+        }
+
+        public void DeleteContact(int id)
+        {
+            _contacts.Remove(_contacts.First(contact => contact.Id == id));
+        }
+
+        public void UpdateContact(Contact givenContact)
+        {
+            var contact = _contacts.First(c => c.Id == givenContact.Id);
+            _contacts[_contacts.IndexOf(contact)] = givenContact;
         }
 
         private int GetId()

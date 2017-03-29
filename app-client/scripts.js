@@ -1,5 +1,5 @@
 contactsApp.scripts = function() {
-    var editThisContact = 0;
+    var apiUrl = 'http://localhost:54731/api/contacts';
 
     return {
         newContact: function () {
@@ -31,7 +31,13 @@ contactsApp.scripts = function() {
         },
 
         updateContacts: function () {
-            var contacts = contactsApp.contactStorage.getContacts();
+            $.getJSON(apiUrl)
+                .done(function (contacts) {
+                    $.each(contacts, function (key, item) {
+                        $('<tr>', {text: item}).appendTo($('#tableBody'));
+                    });
+                });
+            /*var contacts = contactsApp.contactStorage.getContacts();
             var rows = '';
             for (var i = 0; i < contacts.length; i++) {
                 var googleMaps = 'https://www.google.com/maps?q=' + contacts[i].address;
@@ -47,7 +53,7 @@ contactsApp.scripts = function() {
                     'onclick="contactsApp.scripts.deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button></td>' +
                     '</tr>';
             }
-            document.getElementById('tableBody').innerHTML = rows;
+            document.getElementById('tableBody').innerHTML = rows;*/
         },
 
         newEdit: function (index) {

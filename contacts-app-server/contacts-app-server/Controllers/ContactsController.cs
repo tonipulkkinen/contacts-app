@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using contacts_app_server.Model;
 using contacts_app_server.Services;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Cors;
 
 namespace contacts_app_server.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [Route("api/contacts")]
     public class ContactsController : Controller
     {
-        private ContactService _contactService = new ContactService();
+        private static ContactService _contactService = new ContactService();
 
         // GET api/contacts
         [HttpGet]
@@ -21,7 +23,7 @@ namespace contacts_app_server.Controllers
             return _contactService.FindAllContacts();
         }
 
-        // GET api/contacts/1
+        // GET api/contacts/id
         [HttpGet("{id}")]
         public Contact Get(int id)
         {
@@ -32,19 +34,32 @@ namespace contacts_app_server.Controllers
         [HttpPost]
         public void Post([FromBody]Contact contact)
         {
-            Debug.WriteLine(contact);
+            _contactService.SaveContact(contact);
         }
 
-        // PUT api/contacts/5
+        // PUT api/contacts/id
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Update(int id, [FromBody]Contact contact)
         {
+            var contactUpdate = _contactService.FindContactById(id);
+
+            contactUpdate.FirstName = contact.FirstName;
+            contactUpdate.LastName = contact.LastName;
+            contactUpdate.Phone = contact.Phone;
+            contactUpdate.StreetAddress = contact.StreetAddress;
+            contactUpdate.City = contact.City;
+
+            return new NoContentResult();
         }
 
-        // DELETE api/contacts/5
+        // DELETE api/contacts/id
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var contact = _contactService.FindContactById(id);
+            _contactService.DeleteContact(id);
+
+            return new NoContentResult();
         }
     }
 }
