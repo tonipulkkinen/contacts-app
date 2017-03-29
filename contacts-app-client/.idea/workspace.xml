@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3247e05-c884-4310-bd68-9bd662a3699b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/contact.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/contactStorage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/contacts-app.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/edit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/gitignore.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/indexStyle.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/libs/jquery-3.1.1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/libs/lodash.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/libs/material.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/libs/material.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/material.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/material.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../contacts-app/scripts.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../contacts-app/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +21,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="1088">
+              <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -136,11 +118,11 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/material.min.css" />
         <option value="$PROJECT_DIR$/indexStyle.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/contact.js" />
         <option value="$PROJECT_DIR$/contactStorage.js" />
         <option value="$PROJECT_DIR$/edit.html" />
         <option value="$PROJECT_DIR$/scripts.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -643,12 +625,12 @@
       <workItem from="1490595892999" duration="232000" />
       <workItem from="1490596472877" duration="13409000" />
       <workItem from="1490681894623" duration="1513000" />
-      <workItem from="1490768440321" duration="15000" />
+      <workItem from="1490768440321" duration="172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89051000" />
+    <option name="totallyTimeSpent" value="89208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -1121,8 +1103,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+        <state relative-caret-position="1088">
+          <caret line="64" column="8" lean-forward="false" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
