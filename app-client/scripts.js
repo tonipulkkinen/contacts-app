@@ -31,13 +31,13 @@ contactsApp.scripts = function() {
         },
 
         updateContacts: function () {
-            $.getJSON(apiUrl)
+            /*$.getJSON(apiUrl)
                 .done(function (contacts) {
                     $.each(contacts, function (key, item) {
                         $('<tr>', {text: item}).appendTo($('#tableBody'));
                     });
-                });
-            /*var contacts = contactsApp.contactStorage.getContacts();
+                });*/
+            var contacts = contactsApp.contactStorage.getContacts();
             var rows = '';
             for (var i = 0; i < contacts.length; i++) {
                 var googleMaps = 'https://www.google.com/maps?q=' + contacts[i].address;
@@ -53,7 +53,7 @@ contactsApp.scripts = function() {
                     'onclick="contactsApp.scripts.deleteContact(this.parentNode.parentNode.rowIndex)">Delete</button></td>' +
                     '</tr>';
             }
-            document.getElementById('tableBody').innerHTML = rows;*/
+            document.getElementById('tableBody').innerHTML = rows;
         },
 
         newEdit: function (index) {
