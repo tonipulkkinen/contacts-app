@@ -1,0 +1,13 @@
+md-card {
+  width: auto;
+  margin-bottom: 10px;
+  background-color: cornflowerblue;
+}
+
+button {
+  background-color: cornflowerblue;
+}
+
+md-icon {
+  color: white;
+}
