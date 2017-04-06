@@ -1,8 +1,8 @@
 ﻿# Contacts-app
 
-Project where we train HTML, CSS and JavaScript
+Project where we train HTML, CSS, JavaScript and Angular 4
 
-Hours: 38
+Hours: 47
 
 Learned:
 -jquery
@@ -49,4 +49,4 @@ Learned:
 Difficulties:
 
 -Updating localStorage
--Getting some mdl elements to work properly
+-Getting some md elements to work properly with self made css
