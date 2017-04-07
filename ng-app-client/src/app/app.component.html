@@ -1,9 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center center">
 <md-card>
-  <h3>Contacts</h3>
+  <h2>Contacts</h2>
 <app-contact-list [contacts]="contacts"></app-contact-list>
-  <div fxLayout="row" fxLayoutAlign="end">
-    <button md-mini-fab><md-icon>person_add</md-icon></button>
-  </div>
+  <button style="float: right;" md-mini-fab (click)="pressAddContact()"><md-icon>person_add</md-icon></button>
 </md-card>
 </div>

@@ -1,10 +1,10 @@
 <md-card>
-  <h4><md-icon>person</md-icon>{{contact.firstName}} {{contact.lastName}}</h4>
-  <p>{{contact.address}}</p>
-  <p>{{contact.phone}}</p>
-  <div>
-    <button md-mini-fab><md-icon>delete</md-icon></button>
-    <button md-mini-fab><md-icon>edit</md-icon></button>
-    <button style="float: right" md-mini-fab><md-icon>place</md-icon></button>
+  <h4 fxLayout="row" fxLayoutAlign="start center"><md-icon style="margin-right: 5px;">person</md-icon>{{contact.firstName}} {{contact.lastName}}</h4>
+  {{contact.address}}<br>
+  {{contact.phone}}
+  <div style="margin-top: 20px;">
+    <md-icon>delete</md-icon>
+    <md-icon>edit</md-icon>
+    <md-icon style="float: right;">place</md-icon>
   </div>
 </md-card>

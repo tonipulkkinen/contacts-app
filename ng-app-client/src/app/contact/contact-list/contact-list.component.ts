@@ -9,10 +9,10 @@ import {Contact} from "../contact";
 export class ContactListComponent implements OnInit {
 
   @Input() contacts;
-  @Output() select: EventEmitter<Contact>;
+  /*@Output() select: EventEmitter<Contact>;*/
 
   constructor() {
-    this.select = new EventEmitter();
+    /*this.select = new EventEmitter();*/
   }
 
   ngOnInit() {

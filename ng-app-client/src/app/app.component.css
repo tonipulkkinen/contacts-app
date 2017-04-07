@@ -1,8 +1,13 @@
 md-card {
   width: 400px;
-  background-color: #9ad3de;
+  padding: 15px 20px;
+  background-color: #c5d3ea;
 }
 
 md-icon {
   color: white;
+}
+
+button {
+  background-color: cornflowerblue;
 }

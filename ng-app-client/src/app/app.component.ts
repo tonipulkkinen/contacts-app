@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {Contact} from './contact/contact'
+import {ContactService} from "./contact/services/contact.service";
+import {Contact} from "./contact/contact";
+import {DialogService} from "./contact/services/dialog.service";
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,11 @@ export class AppComponent {
 
   contacts: Contact[];
 
-  constructor() {
-    this.contacts = [
-      new Contact('Hermanni', 'Heiluja', '027503925', 'Hermannikatu 5', 'Hermannila'),
-      new Contact('Joku', 'Randomi', '039487693', 'Randomkatu 13', 'Randomila'),
-      new Contact('Ihme', 'Tyyppi', '390487423', 'Ihmetie 8', 'Ihmemaa')
-    ]
+  constructor(contactService: ContactService, public dialog: DialogService) {
+    this.contacts = contactService.findContacts();
+  }
+
+  pressAddContact() {
+    this.dialog.contactDialog();
   }
 }
