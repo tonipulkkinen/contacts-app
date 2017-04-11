@@ -12,7 +12,7 @@ export class ContactDialogComponent implements OnInit {
   dialogRef;
   contact: Contact;
 
-  constructor(dialogRef: MdDialogRef<ContactDialogComponent>) {
+  constructor(dialogRef: MdDialogRef<ContactDialogComponent>){
     this.dialogRef = dialogRef;
   }
 

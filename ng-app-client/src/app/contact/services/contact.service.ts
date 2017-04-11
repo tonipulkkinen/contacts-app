@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Contact} from "../contact";
+import {ContactStorageService} from "./contact-storage.service";
+import * as _ from "lodash";
 
 @Injectable()
 export class ContactService {
 
-  contacts: Contact[];
-
-  constructor() {
-    this.contacts = [
-      new Contact('Hermanni', 'Heiluja', '027503925', 'Hermannikatu 5', 'Hermannila'),
-      new Contact('Joku', 'Randomi', '039487693', 'Randomkatu 13', 'Randomila'),
-      new Contact('Ihme', 'Tyyppi', '390487423', 'Ihmetie 8', 'Ihmemaa')
-    ];
+  constructor(public storageService: ContactStorageService) {
   }
 
-  public findContacts(): Contact[] {
-    return this.contacts;
+  public findContacts() {
+    let contacts = this.storageService.loadContacts();
+    /*
+    contacts.push(new Contact('Hermanni', 'Heiluja', '28935728935', 'Hermannikatu 5', 'Hermannila'));
+    */
+    return contacts;
+  }
+
+  public addNewContact(contact: Contact): void {
+    let contacts = this.storageService.loadContacts();
+    contacts.push(contact);
+    this.storageService.saveContacts(contacts);
   }
 
 }

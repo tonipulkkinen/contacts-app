@@ -1,3 +1,26 @@
-<md-card>
-
-</md-card>
+<h1 md-dialog-title>New Contact</h1>
+<div md-dialog-content="">
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="firstName" [(ngModel)]="contact._firstName" type="text" required placeholder="First name">
+  </md-input-container>
+  <br>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="lastName" [(ngModel)]="contact._lastName" type="text" required placeholder="Last name">
+  </md-input-container>
+  <br>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="phone" [(ngModel)]="contact._phone" type="text" required placeholder="Phone">
+  </md-input-container>
+  <br>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="streetAddress" [(ngModel)]="contact._streetAddress" type="text" required placeholder="Street address">
+  </md-input-container>
+  <br>
+  <md-input-container floatPlaceholder="auto">
+    <input mdInput name="city" [(ngModel)]="contact._city" type="text" required placeholder="City">
+  </md-input-container>
+  <div md-dialog-actions fxLayout="row" fxLayoutAlign="space-around center">
+    <button md-raised-button (click)="add()">Add</button>
+    <button md-raised-button (click)="cancel()">Cancel</button>
+  </div>
+</div>

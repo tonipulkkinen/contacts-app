@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files*/
-/*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';*/
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @font-face {
   font-family: 'Material Icons';
@@ -24,6 +24,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-* {
-  color: white;
+body {
+  background-color: whitesmoke;
 }
