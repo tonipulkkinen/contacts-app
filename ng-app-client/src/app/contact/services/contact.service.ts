@@ -10,11 +10,7 @@ export class ContactService {
   }
 
   public findContacts() {
-    let contacts = this.storageService.loadContacts();
-    /*
-    contacts.push(new Contact('Hermanni', 'Heiluja', '28935728935', 'Hermannikatu 5', 'Hermannila'));
-    */
-    return contacts;
+    return this.storageService.loadContacts();
   }
 
   public addNewContact(contact: Contact): void {
@@ -23,4 +19,17 @@ export class ContactService {
     this.storageService.saveContacts(contacts);
   }
 
+  public newEdit(contact: Contact): void {
+    let contacts = this.storageService.loadContacts();
+    let newEditsId = _.findIndex(contacts, ['id', contact._id]);
+    contacts.splice(newEditsId, 1, contact);
+    this.storageService.saveContacts(contacts);
+  }
+
+  public newDelete(id: string): void {
+    let contacts = this.storageService.loadContacts();
+    let removeId = _.findIndex(contacts, ['id'], id);
+    contacts.splice(removeId, 1);
+    this.storageService.saveContacts(contacts);
+  }
 }

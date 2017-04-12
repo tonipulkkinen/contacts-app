@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ContactService} from "./contact/services/contact.service";
 import {Contact} from "./contact/contact";
 import {DialogService} from "./contact/services/dialog.service";
-import {ContactStorageService} from "./contact/services/contact-storage.service";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +13,7 @@ export class AppComponent implements OnInit{
 
   contacts: Contact[];
 
-  constructor(public contactService: ContactService, public dialog: DialogService, public storage: ContactStorageService){
+  constructor(public contactService: ContactService, public dialog: DialogService){
   }
 
   ngOnInit(): void {
@@ -26,12 +25,31 @@ export class AppComponent implements OnInit{
   }
 
   pressAddContact(): void {
-    let input = this.dialog.contactDialog();
-    input.subscribe(result => {
+    let buttonPressed = this.dialog.contactDialog();
+    buttonPressed.subscribe(result => {
       if (result) {
         this.contactService.addNewContact((result));
         this.updateContacts();
       }
     });
+  }
+
+  editContact(contact: Contact): void {
+    let buttonPressed = this.dialog.contactDialog(contact);
+    buttonPressed.subscribe(result => {
+      if (result) {
+        this.contactService.newEdit(result);
+        this.updateContacts();
+      }
+    });
+  }
+
+  deleteContact(contact: Contact): void {
+    this.contactService.newDelete(contact._id);
+    this.updateContacts();
+  }
+
+  showOnMap(contact: Contact): void {
+    this.dialog.mapDialog(contact);
   }
 }

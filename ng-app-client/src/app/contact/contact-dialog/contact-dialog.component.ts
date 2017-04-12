@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from "../contact";
 import {MdDialogRef} from "@angular/material";
 
@@ -9,24 +9,28 @@ import {MdDialogRef} from "@angular/material";
 })
 export class ContactDialogComponent implements OnInit {
 
-  dialogRef;
   contact: Contact;
+  dialogMode: string;
+  saveMode: string;
 
-  constructor(dialogRef: MdDialogRef<ContactDialogComponent>){
-    this.dialogRef = dialogRef;
+  constructor(public dialog: MdDialogRef<ContactDialogComponent>){
   }
 
-  ngOnInit(): void {
-    if (!this.contact) {
-      this.contact = new Contact();
-    }
-  }
-
-  add() {
-    this.dialogRef.close(this.contact);
+  save() {
+    this.dialog.close(this.contact);
   }
 
   cancel() {
-    this.dialogRef.close();
+    this.dialog.close();
+  }
+
+  ngOnInit() {
+    this.dialogMode = 'Edit';
+    this.saveMode = 'Save';
+    if (!this.contact) {
+      this.contact = new Contact();
+      this.dialogMode = 'New';
+      this.saveMode = 'Add';
+    }
   }
 }

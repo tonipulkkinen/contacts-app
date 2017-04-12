@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="start end">
+  <button md-icon-button (click)="close()" style="float: right;">
+    <md-icon>close</md-icon>
+  </button>
+  <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    [src]="getMapSource(mapUrl)"
+    allowfullscreen>
+  </iframe>
+</div>
+

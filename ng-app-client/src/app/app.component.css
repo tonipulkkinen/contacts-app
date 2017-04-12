@@ -1,4 +1,10 @@
 md-card {
-  width: 400px;
-  padding: 15px 20px;
+  width: 450px;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+button {
+  float: right;
+  margin-top: 10px;
 }

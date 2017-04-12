@@ -1,10 +1,18 @@
 <md-card>
-  <h4 fxLayout="row" fxLayoutAlign="start center"><md-icon style="margin-right: 5px;">person</md-icon>{{contact._firstName}} {{contact._lastName}}</h4>
-  {{contact._streetAddress}}, {{contact._city}}<br>
-  {{contact._phone}}
-  <div style="margin-top: 20px;">
-    <md-icon>delete</md-icon>
-    <md-icon>edit</md-icon>
-    <md-icon style="float: right;">place</md-icon>
-  </div>
+  <md-card-content>
+    <h4 fxLayout="row" fxLayoutAlign="start end"><md-icon style="margin-right: 5px;">person</md-icon>{{contact._firstName}} {{contact._lastName}}</h4>
+    {{contact._streetAddress}}, {{contact._city}}<br>
+    {{contact._phone}}
+  </md-card-content>
+  <md-card-actions>
+    <button md-icon-button (click)="deleteContact()">
+      <md-icon>delete</md-icon>
+    </button>
+    <button md-icon-button (click)="editContact()">
+      <md-icon>edit</md-icon>
+    </button>
+    <button md-icon-button (click)="showMapLocation()" style="float: right;">
+      <md-icon>place</md-icon>
+    </button>
+  </md-card-actions>
 </md-card>

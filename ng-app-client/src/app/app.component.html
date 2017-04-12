@@ -1,7 +1,15 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-<md-card>
-  <h2>Contacts</h2>
-<app-contact-list [contacts]="contacts"></app-contact-list>
-  <button style="float: right;" md-mini-fab (click)="pressAddContact()"><md-icon>person_add</md-icon></button>
-</md-card>
+  <md-card fxLayout="row" fxLayoutAlign="center center">
+    <h2>Contacts</h2>
+  </md-card>
+<div>
+  <app-contact-list
+    [contacts]="contacts"
+    (editContact)="editContact($event)"
+    (removeContact)="deleteContact($event)"
+    (showMap)="showOnMap($event)"
+  >
+  </app-contact-list>
+  <button md-mini-fab (click)="pressAddContact()"><md-icon>person_add</md-icon></button>
+</div>
 </div>
