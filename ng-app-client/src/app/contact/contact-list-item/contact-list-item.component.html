@@ -1,7 +1,7 @@
 <md-card>
   <md-card-content>
     <h4 fxLayout="row" fxLayoutAlign="start end"><md-icon style="margin-right: 5px;">person</md-icon>{{contact._firstName}} {{contact._lastName}}</h4>
-    {{contact._streetAddress}}, {{contact._city}}<br>
+    {{contact | contactAddress}}<br>
     {{contact._phone}}
   </md-card-content>
   <md-card-actions>
