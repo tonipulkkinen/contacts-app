@@ -1,0 +1,10 @@
+.login-card-title {
+  width: 350px;
+  background-color: cornflowerblue;
+  color:white;
+}
+
+.login-card-content {
+  width: 300px;
+  background-color: white;
+}
