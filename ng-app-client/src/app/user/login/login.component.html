@@ -4,7 +4,21 @@
   </md-card>
   <md-card class="login-card-content">
     <md-card-content>
-
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <md-icon>person</md-icon>
+        <md-input-container>
+          <input mdInput placeholder="Username" value="">
+        </md-input-container>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <md-icon>lock</md-icon>
+        <md-input-container>
+          <input mdInput placeholder="Password" value="">
+        </md-input-container>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button md-raised-button (click)="login()">Login</button>
+      </div>
     </md-card-content>
   </md-card>
 </div>
