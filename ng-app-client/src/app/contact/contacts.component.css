@@ -7,9 +7,6 @@ md-card {
 button {
   float: right;
   margin-top: 10px;
-}
-
-.addButton {
   background-color: cornflowerblue;
   color: white;
 }

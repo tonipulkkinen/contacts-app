@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {} from './contact/contacts.component'
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MdSidenav} from "@angular/material";
+import {NavigationEnd, Router} from "@angular/router";
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,24 @@ import {} from './contact/contacts.component'
 })
 export class AppComponent implements OnInit{
 
-  constructor(){
+  toolbarActive: boolean;
+
+  @ViewChild('sidenav') sidenav: MdSidenav;
+
+  constructor(private router: Router){
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.router.events
+      .subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          if (_.isEqual(event.urlAfterRedirects, '/') || _.isEqual(event.urlAfterRedirects, '/login')) {
+            this.toolbarActive = false;
+            return;
+          }
+          this.toolbarActive = true;
+        }
+      });
   }
 
 }

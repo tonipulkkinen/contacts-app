@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { MdButtonModule, MdDialogModule, MdCoreModule, MdCardModule, MdInputModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdCoreModule, MdCardModule, MdInputModule, MdIconModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ContactsComponent } from './contact/contacts.component';
@@ -51,7 +51,9 @@ const routes: Routes = [
     MdCoreModule,
     MdCardModule,
     MdInputModule,
-    MdIconModule
+    MdIconModule,
+    MdSidenavModule,
+    MdToolbarModule
   ],
   entryComponents: [ContactDialogComponent, MapDialogComponent],
   providers: [ContactService, DialogService, ContactStorageService],

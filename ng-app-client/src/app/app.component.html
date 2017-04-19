@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<md-sidenav-container>
+  <md-toolbar *ngIf="toolbarActive">
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>
+  </md-toolbar>
+  <md-sidenav *ngIf="toolbarActive" #sidenav mode="push">
+    <md-toolbar class="side-toolbar">
+
+    </md-toolbar>
+  </md-sidenav>
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>
