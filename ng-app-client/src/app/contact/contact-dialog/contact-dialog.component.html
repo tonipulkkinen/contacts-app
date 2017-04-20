@@ -1,25 +1,25 @@
 <h1 md-dialog-title>{{dialogMode}} Contact</h1>
-<div md-dialog-content="">
+<div md-dialog-content="" class="content-area">
   <md-input-container floatPlaceholder="auto">
-    <input mdInput name="firstName" [(ngModel)]="contact._firstName" type="text" required placeholder="First name">
+    <input mdInput name="firstName" [(ngModel)]="contact.firstName" type="text" required placeholder="First name">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput name="lastName" [(ngModel)]="contact._lastName" type="text" required placeholder="Last name">
+    <input mdInput name="lastName" [(ngModel)]="contact.lastName" type="text" required placeholder="Last name">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput name="phone" [(ngModel)]="contact._phone" type="text" required placeholder="Phone">
+    <input mdInput name="phone" [(ngModel)]="contact.phone" type="text" required placeholder="Phone">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput name="streetAddress" [(ngModel)]="contact._streetAddress" type="text" required placeholder="Street address">
+    <input mdInput name="streetAddress" [(ngModel)]="contact.streetAddress" type="text" required placeholder="Street address">
   </md-input-container>
   <br>
   <md-input-container floatPlaceholder="auto">
-    <input mdInput name="city" [(ngModel)]="contact._city" type="text" required placeholder="City">
+    <input mdInput name="city" [(ngModel)]="contact.city" type="text" required placeholder="City">
   </md-input-container>
-  <md-dialog-actions fxLayout="row" fxLayoutAlign="space-around center">
+  <md-dialog-actions fxLayout="row" fxLayoutAlign="space-around center" class="button-area">
     <button type="submit" md-raised-button (click)="save()">{{saveMode}}</button>
     <button md-raised-button md-dialog-close (click)="cancel()">Cancel</button>
   </md-dialog-actions>

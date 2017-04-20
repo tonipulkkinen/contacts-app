@@ -11,7 +11,7 @@ import {Contact} from "./contact";
 })
 export class ContactsComponent implements OnInit {
 
-  contacts: Contact;
+  contacts: Contact[];
 
   constructor(public contactService: ContactService, public dialog: DialogService) { }
 
@@ -20,15 +20,22 @@ export class ContactsComponent implements OnInit {
   }
 
   updateContacts() {
-    this.contacts = this.contactService.findContacts();
+    //this.contacts = this.contactService.findContacts();
+
+    this.contactService.findContacts().subscribe(contacts => {
+      this.contacts = contacts;
+    });
   }
 
   pressAddContact(): void {
     let buttonPressed = this.dialog.contactDialog();
     buttonPressed.subscribe(result => {
       if (result) {
-        this.contactService.addNewContact((result));
-        this.updateContacts();
+        this.contactService.addNewContact(result).subscribe(allDone => {
+          if (allDone) {
+            this.updateContacts();
+          }
+        });
       }
     });
   }
@@ -37,15 +44,21 @@ export class ContactsComponent implements OnInit {
     let buttonPressed = this.dialog.contactDialog(contact);
     buttonPressed.subscribe(result => {
       if (result) {
-        this.contactService.newEdit(result);
-        this.updateContacts();
+        this.contactService.newEdit(result).subscribe(allDone => {
+          if (allDone) {
+            this.updateContacts();
+          }
+        });
       }
     });
   }
 
   deleteContact(contact: Contact): void {
-    this.contactService.newDelete(contact._id);
-    this.updateContacts();
+    this.contactService.newDelete(contact.id).subscribe(allDone => {
+      if (allDone) {
+        this.updateContacts();
+      }
+    });
   }
 
   showOnMap(contact: Contact): void {

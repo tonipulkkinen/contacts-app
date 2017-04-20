@@ -13,8 +13,6 @@ namespace contacts_app_server.Services
         public ContactService()
         {
             _contacts = new List<Contact>();
-            _contacts.Add(new Contact(1, "Joku", "Randomi", "346346345", "Randomkatu 5", "Randomila"));
-            _contacts.Add(new Contact(2, "Hermanni", "Heiluja", "87954575", "Hermanninkatu 9", "Hermannila"));
         }
 
         public List<Contact> FindAllContacts()

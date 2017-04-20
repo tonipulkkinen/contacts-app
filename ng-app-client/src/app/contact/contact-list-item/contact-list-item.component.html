@@ -1,8 +1,9 @@
 <md-card>
   <md-card-content>
-    <h4 fxLayout="row" fxLayoutAlign="start end"><md-icon style="margin-right: 5px;">person</md-icon>{{contact._firstName}} {{contact._lastName}}</h4>
+    <h4 fxLayout="row" fxLayoutAlign="start end"><md-icon style="margin-right: 5px;">person</md-icon>{{contact.firstName}}
+      {{contact.lastName}}</h4>
     {{contact | contactAddress}}<br>
-    {{contact._phone}}
+    {{contact.phone}}
   </md-card-content>
   <md-card-actions>
     <button md-icon-button (click)="deleteContact()">

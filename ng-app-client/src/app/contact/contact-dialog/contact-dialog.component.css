@@ -2,6 +2,10 @@
   color: royalblue;
 }
 
+.content-area {
+  height: 340px;
+}
+
 button {
   background-color: cornflowerblue;
   color: white;

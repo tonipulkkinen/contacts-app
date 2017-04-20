@@ -15,9 +15,10 @@ import { ContactDialogComponent } from './contact/contact-dialog/contact-dialog.
 import { MapDialogComponent } from './contact/map-dialog/map-dialog.component';
 import { LoginComponent } from './user/login/login.component';
 
-import { ContactService } from "./contact/services/contact.service";
-import { DialogService } from "./contact/services/dialog.service";
-import { ContactStorageService } from "./contact/services/contact-storage.service";
+import { ContactService } from './contact/services/contact.service';
+import { DialogService } from './contact/services/dialog.service';
+import { ContactStorageService } from './contact/services/contact-storage.service';
+import { ContactApiService } from './contact/services/contact-api.service';
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 
@@ -56,7 +57,7 @@ const routes: Routes = [
     MdToolbarModule
   ],
   entryComponents: [ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactStorageService],
+  providers: [ContactService, DialogService, ContactStorageService, ContactApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
