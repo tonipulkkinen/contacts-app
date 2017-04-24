@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../services/user.service";
+import {User} from "../user";
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,24 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: User;
+  wrongUser: string = "";
+
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
 
   login() {
+    /*this.wrongUser = '';
+    this.userService.findUser(this.user.username).subscribe(result => {
+      if(result.password == this.user.password) {
+        this.router.navigate(['contacts']);
+      }
+      else {
+        this.wrongUser = "Invalid username and password combination";
+      }
+    });*/
     this.router.navigate(['contacts']);
   }
 
