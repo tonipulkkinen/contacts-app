@@ -25,9 +25,9 @@ namespace contacts_app_server.Controllers
 
         // GET api/login/username
         [HttpGet("{username}")]
-        public User Get(string Username)
+        public User Get(string username)
         {
-            return _userService.FindUserByUsername(Username);
+            return _userService.FindUserByUsername(username);
         }
 
         // POST api/login

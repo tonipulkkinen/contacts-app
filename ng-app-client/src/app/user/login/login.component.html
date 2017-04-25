@@ -7,13 +7,13 @@
       <div fxLayout="row" fxLayoutAlign="start center">
         <md-icon>person</md-icon>
         <md-input-container>
-          <input mdInput placeholder="Username" value="">
+          <input mdInput [(ngModel)]="user.username" type="text" required placeholder="Username">
         </md-input-container>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <md-icon>lock</md-icon>
         <md-input-container>
-          <input mdInput placeholder="Password" value="">
+          <input mdInput [(ngModel)]="user.password" type="password" required placeholder="Password">
         </md-input-container>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">

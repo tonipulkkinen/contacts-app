@@ -16,19 +16,22 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.user = new User;
   }
 
   login() {
-    /*this.wrongUser = '';
+    this.wrongUser = '';
     this.userService.findUser(this.user.username).subscribe(result => {
-      if(result.password == this.user.password) {
+      if(!result) {
+        this.wrongUser = "Username does not exist";
+      }
+      else if(result.password == this.user.password) {
         this.router.navigate(['contacts']);
       }
       else {
         this.wrongUser = "Invalid username and password combination";
       }
-    });*/
-    this.router.navigate(['contacts']);
+    });
   }
 
 }
