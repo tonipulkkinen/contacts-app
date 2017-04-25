@@ -15,6 +15,7 @@ md-icon {
 }
 
 button {
+  margin-top: 10px;
   background-color: cornflowerblue;
   color: white;
 }

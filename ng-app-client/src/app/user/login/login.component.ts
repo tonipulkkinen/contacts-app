@@ -11,7 +11,7 @@ import {User} from "../user";
 export class LoginComponent implements OnInit {
 
   user: User;
-  wrongUser: string = "";
+  errorMessage: string = "";
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -20,16 +20,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.wrongUser = '';
+    this.errorMessage = '';
     this.userService.findUser(this.user.username).subscribe(result => {
       if(!result) {
-        this.wrongUser = "Username does not exist";
+        this.errorMessage = "Username does not exist";
       }
       else if(result.password == this.user.password) {
+        this.user = result;
         this.router.navigate(['contacts']);
       }
       else {
-        this.wrongUser = "Invalid username and password combination";
+        this.errorMessage = "Invalid username and password combination";
       }
     });
   }
