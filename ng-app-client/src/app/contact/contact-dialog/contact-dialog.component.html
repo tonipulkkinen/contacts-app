@@ -20,7 +20,7 @@
     <input mdInput name="city" [(ngModel)]="contact.city" type="text" required placeholder="City">
   </md-input-container>
   <md-dialog-actions fxLayout="row" fxLayoutAlign="space-around center" class="button-area">
-    <button type="submit" md-raised-button (click)="save()">{{saveMode}}</button>
     <button md-raised-button md-dialog-close (click)="cancel()">Cancel</button>
+    <button type="submit" md-raised-button (click)="save()">{{saveMode}}</button>
   </md-dialog-actions>
 </div>

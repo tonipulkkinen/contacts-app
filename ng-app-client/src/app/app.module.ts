@@ -21,6 +21,7 @@ import { ContactStorageService } from './contact/services/contact-storage.servic
 import { ContactApiService } from './contact/services/contact-api.service';
 import { UserService } from './user/services/user.service';
 import { UserApiService } from './user/services/user-api.service';
+import { UserStorageService } from "./user/services/user-storage.service";
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 
@@ -59,7 +60,7 @@ const routes: Routes = [
     MdToolbarModule
   ],
   entryComponents: [ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactStorageService, ContactApiService, UserService, UserApiService],
+  providers: [ContactService, DialogService, ContactStorageService, ContactApiService, UserService, UserApiService, UserStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,26 +13,25 @@ export class LoginComponent implements OnInit {
   user: User;
   errorMessage: string = "";
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, public userService: UserService) { }
 
   ngOnInit() {
     this.user = new User;
   }
 
   login() {
-    /*this.errorMessage = '';
+    this.errorMessage = '';
     this.userService.findUser(this.user.username).subscribe(result => {
       if(!result) {
         this.errorMessage = "Username does not exist";
       }
       else if(result.password == this.user.password) {
-        this.user = result;
+        this.userService.saveUserLocally(result.username);
         this.router.navigate(['contacts']);
       }
       else {
         this.errorMessage = "Invalid username and password combination";
       }
-    });*/
-    this.router.navigate(['contacts']);
+    });
   }
 }
