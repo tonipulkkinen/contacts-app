@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.errorMessage = '';
+    /*this.errorMessage = '';
     this.userService.findUser(this.user.username).subscribe(result => {
       if(!result) {
         this.errorMessage = "Username does not exist";
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       else {
         this.errorMessage = "Invalid username and password combination";
       }
-    });
+    });*/
+    this.router.navigate(['contacts']);
   }
 }
