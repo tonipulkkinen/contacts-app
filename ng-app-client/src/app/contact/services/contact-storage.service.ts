@@ -7,7 +7,7 @@ export class ContactStorageService {
   private contactsStorageKey = 'ca-contacts';
 
   constructor() {
-    if(localStorage.getItem(this.contactsStorageKey) === null){
+    if(!localStorage.getItem(this.contactsStorageKey)){
       localStorage.setItem(this.contactsStorageKey, JSON.stringify([]));
     }
   }
