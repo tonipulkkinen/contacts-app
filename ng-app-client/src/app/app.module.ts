@@ -22,8 +22,10 @@ import { ContactApiService } from './contact/services/contact-api.service';
 import { UserService } from './user/services/user.service';
 import { UserApiService } from './user/services/user-api.service';
 import { UserStorageService } from "./user/services/user-storage.service";
+import {DeviceService} from "./contact/utils/device.service";
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
+import { VibrationDirective } from './contact/utils/vibration.directive';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -40,7 +42,8 @@ const routes: Routes = [
     MapDialogComponent,
     ContactAddressPipe,
     ContactsComponent,
-    LoginComponent
+    LoginComponent,
+    VibrationDirective
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ const routes: Routes = [
     MdToolbarModule
   ],
   entryComponents: [ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactStorageService, ContactApiService, UserService, UserApiService, UserStorageService],
+  providers: [ContactService, DialogService, ContactStorageService, ContactApiService, UserService, UserApiService, UserStorageService, DeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

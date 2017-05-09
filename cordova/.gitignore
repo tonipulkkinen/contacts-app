@@ -1,5 +1,6 @@
-/platforms/android
-
+/platforms
 /plugins
 
 /www
+
+/node_modules

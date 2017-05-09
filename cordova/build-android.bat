@@ -3,7 +3,7 @@
 echo ### Building Angular 4 app using Angular CLI ###
 cd ../ng-app-client
 call ng build --output-path=../cordova/www --base-href .
-echo ### Angular 4 app builded and copied to cordova/www ###
+echo ### Angular 4 app built and copied to cordova/www ###
 cd ../cordova
 
 echo ### Removing existing Android platform ###
