@@ -14,8 +14,8 @@
     },
     "dependencies": {
         "cordova-android": "^6.2.1",
-        "cordova-plugin-whitelist": "1",
         "cordova-plugin-crosswalk-webview": "~2.3.0",
-        "cordova-plugin-vibration": "~2.1.5"
+        "cordova-plugin-vibration": "~2.1.5",
+        "cordova-plugin-whitelist": "1"
     }
 }
