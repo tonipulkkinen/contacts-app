@@ -989,11 +989,11 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/1.1.1": {
+      "Microsoft.EntityFrameworkCore.Design/1.1.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.1",
-          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.1",
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.2",
           "NETStandard.Library": "1.6.1",
           "System.Collections.NonGeneric": "4.3.0"
         },
@@ -1020,10 +1020,10 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational.Design/1.1.1": {
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "1.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "1.1.2",
           "NETStandard.Library": "1.6.1"
         },
         "compile": {
@@ -1048,11 +1048,11 @@
           "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.1": {
+      "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "1.1.1",
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "1.1.2",
           "NETStandard.Library": "1.6.1"
         },
         "compile": {
@@ -4955,16 +4955,16 @@
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/1.1.1": {
-      "sha512": "xFeAAi9LUckgeinjji7WPMwPUbZNb6mTVRhWAlo+RVsjpnEjeAQk3Gw4OP3Ln/yncji64J7e74ue+yIArQYt+Q==",
+    "Microsoft.EntityFrameworkCore.Design/1.1.2": {
+      "sha512": "TFbj0fFE5BWJptL0BKhYOED0QOqY4VxApeLn8r9q8cINxyEj0XgjORl/a3Cp96CeASE5zsQeyMwaQCBRH+roag==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/1.1.1",
+      "path": "microsoft.entityframeworkcore.design/1.1.2",
       "files": [
         "lib/net451/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net451/Microsoft.EntityFrameworkCore.Design.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.1.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.1.1.2.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
@@ -4981,16 +4981,16 @@
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational.Design/1.1.1": {
-      "sha512": "WZKmQwuDUTLtjhxT/6c3hiMJTwi8OBl9rsPljY/ZhcMFAsF8sLj4uVrpkuNmrg5DEK2dEtnQn6p+Y9miQiIeZw==",
+    "Microsoft.EntityFrameworkCore.Relational.Design/1.1.2": {
+      "sha512": "pu2Jxndzv3slY6Ch9mdqVfL3AFhH5XzM02Rrnf9h5lKoViprYx1O+nNqT3BxmGrPkYadY9OddG2b9+sUO3Xuzw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational.design/1.1.1",
+      "path": "microsoft.entityframeworkcore.relational.design/1.1.2",
       "files": [
         "lib/net451/Microsoft.EntityFrameworkCore.Relational.Design.dll",
         "lib/net451/Microsoft.EntityFrameworkCore.Relational.Design.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.xml",
-        "microsoft.entityframeworkcore.relational.design.1.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.design.1.1.2.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.design.nuspec"
       ]
     },
@@ -5007,16 +5007,16 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.1": {
-      "sha512": "iqgdh6F9kiLjQZ3JPtcgNDoA8r/76SB47eUvTk9K05+WA5fJOtMwTFFEPYz+fvSY03/9ouA6eXMn7b1AYUBn4A==",
+    "Microsoft.EntityFrameworkCore.SqlServer.Design/1.1.2": {
+      "sha512": "OmFK0Qr2saaQNjz4ilp0f5mYQ1ORvtAjaU+H/TQdU4EMcSoaFs2LEebyNLn0hpt452+7x89D9bD3f6J34k7YyQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver.design/1.1.1",
+      "path": "microsoft.entityframeworkcore.sqlserver.design/1.1.2",
       "files": [
         "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
         "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.Design.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.Design.xml",
-        "microsoft.entityframeworkcore.sqlserver.design.1.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.design.1.1.2.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.design.nuspec"
       ]
     },
@@ -10794,9 +10794,9 @@
       "Microsoft.AspNetCore >= 1.1.1",
       "Microsoft.AspNetCore.Mvc >= 1.1.2",
       "Microsoft.AspNetCore.StaticFiles >= 1.1.1",
-      "Microsoft.EntityFrameworkCore.Design >= 1.1.1",
+      "Microsoft.EntityFrameworkCore.Design >= 1.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 1.1.2",
-      "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.1",
+      "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 1.1.1",
       "Microsoft.Extensions.Logging.Debug >= 1.1.1",
       "Microsoft.NETCore.App >= 1.1.1",
@@ -10845,7 +10845,7 @@
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
-            "version": "1.1.1"
+            "version": "1.1.2"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
@@ -10862,7 +10862,7 @@
           },
           "Microsoft.EntityFrameworkCore.SqlServer.Design": {
             "target": "Package",
-            "version": "1.1.1"
+            "version": "[1.1.2, )"
           },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
