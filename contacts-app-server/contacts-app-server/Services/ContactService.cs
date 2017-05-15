@@ -32,7 +32,7 @@ namespace contacts_app_server.Services
 
         public void SaveContact(Contact contact)
         {
-            _contacts.Add(new Contact(GetId(), contact.FirstName, contact.LastName, contact.Phone, contact.StreetAddress, contact.City));
+            _contacts.Add(new Contact(GetId(), contact.FirstName, contact.FirstName, contact.Phone, contact.StreetAddress, contact.City));
         }
 
         public void DeleteContact(int id)

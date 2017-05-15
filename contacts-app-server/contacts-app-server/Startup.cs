@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace contacts_app_server
 {
@@ -27,6 +28,9 @@ namespace contacts_app_server
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -47,6 +51,10 @@ namespace contacts_app_server
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            var context = app.ApplicationServices.GetService<DatabaseContext>();
+            if (context.Database.EnsureCreated())
+                context.Database.Migrate();
         }
     }
 }

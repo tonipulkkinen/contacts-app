@@ -13,7 +13,7 @@ namespace contacts_app_server.Services
         public UserService()
         {
             _users = new List<User>();
-            _users.Add(new User("asd", "asd", "Toni", "Pulkkinen"));
+            _users.Add(new User(1, "asd", "asd", "Toni", "Pulkkinen", "esimerkki@gmail.com"));
         }
 
         public List<User> FindAllUsers()

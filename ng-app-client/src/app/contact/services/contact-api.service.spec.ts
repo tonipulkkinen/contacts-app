@@ -9,7 +9,4 @@ describe('ContactApiService', () => {
     });
   });
 
-  it('should ...', inject([ContactApiService], (service: ContactApiService) => {
-    expect(service).toBeTruthy();
-  }));
 });

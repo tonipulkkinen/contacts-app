@@ -2,46 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace contacts_app_server.Model
 {
     public class User
     {
-        private string _username;
-        private string _password;
-        private string _firstName;
-        private string _lastName;
+        [Key]
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
 
-        public User(string username, string password, string fisrtname, string lastname)
+        public User(int id,string username, string password, string fisrtname, string lastname, string email)
         {
-            _username = username;
-            _password = password;
-            _firstName = fisrtname;
-            _lastName = lastname;
+            Id = id;
+            Username = username;
+            Password = password;
+            FirstName = fisrtname;
+            LastName = lastname;
+            Email = email;
         }
 
-        public string Username
+        public User(string username, string password, string fisrtname, string lastname, string email)
         {
-            get { return _username; }
-            set { _username = value; }
-        }
-
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
-
-        public string Firstname
-        {
-            get { return _firstName; }
-            set { _firstName = value; }
-        }
-
-        public string Lastname
-        {
-            get { return _lastName; }
-            set { _firstName = value; }
+            Username = username;
+            Password = password;
+            FirstName = fisrtname;
+            LastName = lastname;
+            Email = email;
         }
     }
 }
