@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using contacts_app_server.Model;
 using contacts_app_server.Services;
 using Microsoft.AspNetCore.Cors;
 
@@ -11,41 +7,22 @@ namespace contacts_app_server.Controllers
 {
     [EnableCors("CorsPolicy")]
     [Route("api/login")]
+    [Authorize("Bearer")]
     public class UsersController : Controller
     {
 
-        private static UserService _userService = new UserService();
+        private readonly IUserService _userService;
 
-        // GET: api/login
-        [HttpGet]
-        public List<User> Get()
+        public UsersController(IUserService userService)
         {
-            return _userService.FindAllUsers();
+            _userService = userService;
         }
 
-        // GET api/login/username
-        [HttpGet("{username}")]
-        public User Get(string username)
+        [HttpPut]
+        public IActionResult Login()
         {
-            return _userService.FindUserByUsername(username);
-        }
-
-        // POST api/login
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var user = _userService.FindUserByUsername(User.Identity.Name);
+            return new JsonResult(user);
         }
     }
 }

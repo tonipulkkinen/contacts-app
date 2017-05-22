@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using contacts_app_server.Repository;
 using contacts_app_server.Model;
 
 namespace contacts_app_server.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        public List<User> _users;
+        private readonly IUserRepository _userRepository;
 
-        public UserService()
+        public UserService(IUserRepository userRepository)
         {
-            _users = new List<User>();
-            _users.Add(new User(1, "asd", "asd", "Toni", "Pulkkinen", "esimerkki@gmail.com"));
+            this._userRepository = userRepository;
         }
 
-        public List<User> FindAllUsers()
+        public User FindUserByUsername(string username)
         {
-            return _users;
+            return _userRepository.FindByUsername(username);
         }
 
-        public User FindUserByUsername(string Username)
+        public User FindUserByUsernameAndPassword(string username, string password)
         {
-            return _users.FirstOrDefault(user => user.Username == Username);
+            return _userRepository.FindByUsernameAndPassword(username, password);
         }
     }
 }
