@@ -12,6 +12,8 @@ namespace contacts_app_server.Model
         public string StreetAddress { get; set; }
         public string City { get; set; }
 
+        public Contact() { }
+
         public Contact(int id, string firstName, string lastName, string phone, string streetAddress, string city)
         {
             Id = id;
