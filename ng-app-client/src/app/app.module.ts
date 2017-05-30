@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { ConnectionBackend, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from '@angular/router';
+import {Router, RouterModule, Routes} from '@angular/router';
 import { MdButtonModule, MdDialogModule, MdCoreModule, MdCardModule, MdInputModule, MdIconModule, MdSidenavModule, MdToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,9 @@ import { ContactApiService } from './contact/services/contact-api.service';
 import { UserService } from './user/services/user.service';
 import { UserApiService } from './user/services/user-api.service';
 import { UserStorageService } from "./user/services/user-storage.service";
-import {DeviceService} from "./contact/utils/device.service";
+import { DeviceService } from "./contact/utils/device.service";
+import { AuthenticationService } from "./user/services/authentication.service";
+import { HttpService } from "./user/services/http.service";
 
 import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 import { VibrationDirective } from './contact/utils/vibration.directive';
@@ -32,6 +34,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'contacts', component: ContactsComponent}
 ];
+
+export function getHttp(backend: XHRBackend, options: RequestOptions, router: Router) {
+  return new HttpService(backend, options, router);
+}
 
 @NgModule({
   declarations: [
@@ -63,7 +69,23 @@ const routes: Routes = [
     MdToolbarModule
   ],
   entryComponents: [ContactDialogComponent, MapDialogComponent],
-  providers: [ContactService, DialogService, ContactStorageService, ContactApiService, UserService, UserApiService, UserStorageService, DeviceService],
+  providers: [
+    ContactService,
+    DialogService,
+    ContactStorageService,
+    ContactApiService,
+    UserService,
+    UserApiService,
+    UserStorageService,
+    DeviceService,
+    AuthenticationService,
+    HttpService,
+    {
+      provide: HttpService,
+      useFactory: getHttp,
+      deps: [XHRBackend, RequestOptions, Router]
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

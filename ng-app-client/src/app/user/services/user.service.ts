@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
 import {UserApiService} from "./user-api.service";
-import {UserStorageService} from "./user-storage.service";
+import {User} from "../user";
+import {environment} from "../../../environments/environment";
+import {Observable} from "rxjs";
+import {AuthenticationService} from "./authentication.service";
 
 @Injectable()
 export class UserService {
 
-  constructor(public httpService: UserApiService, public storageService: UserStorageService) { }
+  private user: User;
 
-  public findUsers() {
-    return this.httpService.findUsers();
+  constructor(private userApiService: UserApiService, private authenticationService: AuthenticationService) { }
+
+  login(userName: string, password: string) {
+    if (environment.endPointUrl) {
+      return this.authenticationService.authenticate(userName, password).flatMap(() =>  {
+        return this.userApiService.login();
+      });
+    }
+    else {
+      return Observable.of(null);
+    }
   }
 
-  public findUser(Username: string) {
-    return this.httpService.findUserByUsername(Username);
+  saveUser(user: User) {
+    sessionStorage.setItem('user', JSON.stringify(user));
+    this.user = user;
   }
 
-  public saveUserLocally(username: string) {
-    return this.storageService.saveUser(username);
-  }
-
-  public loadUserLocally() {
-    return this.storageService.loadUser();
+  findUser() {
+    return JSON.parse(sessionStorage.getItem('user'));
   }
 }

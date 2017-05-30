@@ -7,13 +7,13 @@ import * as _ from 'lodash';
 @Injectable()
 export class ContactService {
 
-  constructor(public storageService: ContactStorageService, public httpService: ContactApiService) {
+  constructor(public storageService: ContactStorageService, public contactApiService: ContactApiService) {
   }
 
   public findContacts() {
     //return this.storageService.loadContacts();
 
-    return this.httpService.findContacts();
+    return this.contactApiService.findContacts();
   }
 
   public addNewContact(contact: Contact) {
@@ -21,7 +21,7 @@ export class ContactService {
     contacts.push(contact);
     this.storageService.saveContacts(contacts);*/
 
-    return this.httpService.saveContact(contact);
+    return this.contactApiService.saveContact(contact);
   }
 
   public newEdit(contact: Contact) {
@@ -30,7 +30,7 @@ export class ContactService {
     contacts.splice(newEditsId, 1, contact);
     this.storageService.saveContacts(contacts);*/
 
-    return this.httpService.saveContact(contact);
+    return this.contactApiService.saveContact(contact);
   }
 
   public newDelete(id: string) {
@@ -39,6 +39,6 @@ export class ContactService {
     contacts.splice(removeId, 1);
     this.storageService.saveContacts(contacts);*/
 
-    return this.httpService.deleteContact(id);
+    return this.contactApiService.deleteContact(id);
   }
 }

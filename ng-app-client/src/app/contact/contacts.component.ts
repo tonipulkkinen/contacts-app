@@ -13,7 +13,7 @@ export class ContactsComponent implements OnInit {
 
   contacts: Contact[];
 
-  constructor(public contactService: ContactService, public dialog: DialogService) { }
+  constructor(private contactService: ContactService, private dialog: DialogService) { }
 
   ngOnInit(): void {
     this.updateContacts();
@@ -21,7 +21,6 @@ export class ContactsComponent implements OnInit {
 
   updateContacts() {
     //this.contacts = this.contactService.findContacts();
-
     this.contactService.findContacts().subscribe(contacts => {
       this.contacts = contacts;
     });

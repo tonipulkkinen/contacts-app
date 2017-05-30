@@ -22,7 +22,17 @@ namespace contacts_app_server.Controllers
         public IActionResult Login()
         {
             var user = _userService.FindUserByUsername(User.Identity.Name);
-            return new JsonResult(user);
+            if (user != null)
+            {
+                return new JsonResult(new
+                {
+                    user.Username,
+                    user.Email,
+                    user.FirstName,
+                    user.LastName
+                });
+            }
+            return null;
         }
     }
 }

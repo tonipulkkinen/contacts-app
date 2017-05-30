@@ -7,18 +7,17 @@
       <div fxLayout="row" fxLayoutAlign="start center">
         <md-icon>person</md-icon>
         <md-input-container>
-          <input mdInput [(ngModel)]="user.username" type="text" placeholder="Username">
+          <input mdInput name="username" id="username" [(ngModel)]="user.username" type="text" placeholder="Username">
         </md-input-container>
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <md-icon>lock</md-icon>
         <md-input-container>
-          <input mdInput [(ngModel)]="user.password" type="password" placeholder="Password">
+          <input mdInput name="password" id="password" [(ngModel)]="user.password" type="password" placeholder="Password">
         </md-input-container>
       </div>
       <div fxLayout="column" fxLayoutAlign="center center" style="color: red">
-        {{errorMessage}}
-        <button appVibration md-raised-button (click)="login()">Login</button>
+        <button appVibration md-raised-button (click)="login()" [disabled]="!(user.username && user.password)">Login</button>
       </div>
     </md-card-content>
   </md-card>

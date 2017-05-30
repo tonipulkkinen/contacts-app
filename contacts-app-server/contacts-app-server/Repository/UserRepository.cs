@@ -10,12 +10,18 @@ namespace contacts_app_server.Repository
         public UserRepository(DatabaseContext context)
         {
             _context = context;
-            var user = new User("admin", "admin", "Admin", "Admin", "admin.admin@saimia.fi");
+            var user = new User("admin", "123", "Toni", "Pulkkinen", "esimerkki@jotain.com");
             if (FindByUsername(user.Username) == null)
             {
                 _context.User.Add(user);
                 _context.SaveChanges();
             }
+        }
+
+        public User FindById(int id)
+        {
+            var user = _context.User.FirstOrDefault(u => u.Id == id);
+            return user;
         }
 
         public User FindByUsername(string username)
@@ -26,6 +32,24 @@ namespace contacts_app_server.Repository
         public User FindByUsernameAndPassword(string username, string password)
         {
             return _context.User.FirstOrDefault(u => u.Username == username && u.Username == password);
+        }
+
+        public void Add(User user)
+        {
+            _context.Add(user);
+            _context.SaveChanges();
+        }
+
+        public void Update(User user)
+        {
+            _context.Update(user);
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            _context.Remove(FindById(id));
+            _context.SaveChanges();
         }
     }
 }

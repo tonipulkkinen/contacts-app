@@ -12,21 +12,23 @@ namespace contacts_app_server.Model
         public string LastName { get; set; }
         public string Email { get; set; }
 
-        public User(int id,string username, string password, string fisrtname, string lastname, string email)
+        public User() {}
+
+        public User(int id,string username, string password, string firstname, string lastname, string email)
         {
             Id = id;
             Username = username;
             Password = password;
-            FirstName = fisrtname;
+            FirstName = firstname;
             LastName = lastname;
             Email = email;
         }
 
-        public User(string username, string password, string fisrtname, string lastname, string email)
+        public User(string username, string password, string firstname, string lastname, string email)
         {
             Username = username;
             Password = password;
-            FirstName = fisrtname;
+            FirstName = firstname;
             LastName = lastname;
             Email = email;
         }

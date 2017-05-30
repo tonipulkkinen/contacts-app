@@ -11,7 +11,6 @@ import {User} from "../user";
 export class LoginComponent implements OnInit {
 
   user: User;
-  errorMessage: string = "";
 
   constructor(private router: Router, public userService: UserService) { }
 
@@ -20,19 +19,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    /*this.errorMessage = '';
-    this.userService.findUser(this.user.username).subscribe(result => {
-      if(!result) {
-        this.errorMessage = "Username does not exist";
-      }
-      else if(result.password == this.user.password) {
-        this.userService.saveUserLocally(result.username);
-        this.router.navigate(['contacts']);
-      }
-      else {
-        this.errorMessage = "Invalid username and password combination";
-      }
-    });*/
-    this.router.navigate(['contacts']);
+    this.userService.login(this.user.username, this.user.password).subscribe(result => {
+      let user = new User(result.json().username, result.json().firstName, result.json().lastName, result.json().email);
+
+      this.userService.saveUser(user);
+      this.router.navigate(['/contacts']);
+    });
   }
 }
