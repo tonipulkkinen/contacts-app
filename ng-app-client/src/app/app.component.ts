@@ -15,7 +15,7 @@ import {HttpService} from "./user/services/http.service";
 export class AppComponent implements OnInit{
 
   toolbarActive: boolean;
-  user = new User('hermanni', 'heheee', 'Toni', 'Pulkkinen', 'esimerkki@gmail.com');
+  user: User;
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 

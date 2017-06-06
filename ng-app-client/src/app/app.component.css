@@ -14,7 +14,12 @@ md-toolbar {
 }
 
 .side-toolbar {
-  height: 200px;
+  width: 300px;
+  padding: 10px;
+}
+
+.side-content {
+  padding: 10px;
 }
 
 .app-content {

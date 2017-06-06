@@ -6,13 +6,14 @@
   </md-toolbar>
   <md-sidenav *ngIf="toolbarActive" #sidenav mode="push">
     <md-toolbar class="side-toolbar">
-      <div *ngIf="user">
-        {{user.firstName}}
-
-        <a (click)="logOut()">Log out</a>
+      <div *ngIf="user" id="info">
+        <div>{{user.firstName}} {{user.lastName}}</div>
+        <div>{{user.email}}</div>
+        <button fxLayout="row" fxLayoutAlignt="end center" (click)="logOut()">Log out</button>
       </div>
     </md-toolbar>
     <div class="side-content">
+      Tänne jotain
     </div>
   </md-sidenav>
   <div class="app-content">
