@@ -14,7 +14,7 @@ namespace contacts_app_server.Config
             var handler = new JwtSecurityTokenHandler();
             var expires = DateTime.Now + TokenOptions.ExpiresSpan;
 
-            var identity = new ClaimsIdentity(
+            ClaimsIdentity identity = new ClaimsIdentity(
                 new GenericIdentity(user.Username, "TokenAuth"),
                 new[] { new Claim("ID", user.Id.ToString()) }
                 );

@@ -7,9 +7,9 @@
   <md-sidenav *ngIf="toolbarActive" #sidenav mode="push">
     <md-toolbar class="side-toolbar">
       <div *ngIf="user">
-        <h1>{{user.firstName}} {{user.lastName}}</h1>
-        <span>{{user.email}}</span>
-        <button md-raised-button (click)="logOut()">Log Out</button>
+        {{user.firstName}}
+
+        <a (click)="logOut()">Log out</a>
       </div>
     </md-toolbar>
     <div class="side-content">

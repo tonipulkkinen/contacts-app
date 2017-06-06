@@ -15,7 +15,7 @@ import {HttpService} from "./user/services/http.service";
 export class AppComponent implements OnInit{
 
   toolbarActive: boolean;
-  user: User;
+  user = new User('hermanni', 'heheee', 'Toni', 'Pulkkinen', 'esimerkki@gmail.com');
 
   @ViewChild('sidenav') sidenav: MdSidenav;
 
@@ -27,13 +27,12 @@ export class AppComponent implements OnInit{
             return;
           }
           this.toolbarActive = true;
-          this.user = this.userService.findUser()
+          this.user = this.userService.findUser();
         }
       });
   }
 
   ngOnInit(): void {
-
   }
 
   logOut() {

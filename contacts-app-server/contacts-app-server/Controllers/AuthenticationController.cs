@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using contacts_app_server.Services;
 using contacts_app_server.Config;
 using contacts_app_server.Controllers.Communication;
+using contacts_app_server.Model;
 
 namespace contacts_app_server.Controllers
 {

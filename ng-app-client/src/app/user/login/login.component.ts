@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.user.username, this.user.password).subscribe(result => {
-      let user = new User(result.json().username, result.json().firstName, result.json().lastName, result.json().email);
+      let user = new User(result.json().username, '', result.json().firstName, result.json().lastName, result.json().email);
 
       this.userService.saveUser(user);
       this.router.navigate(['/contacts']);

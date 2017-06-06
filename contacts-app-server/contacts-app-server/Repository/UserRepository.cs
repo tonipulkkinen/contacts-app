@@ -10,7 +10,7 @@ namespace contacts_app_server.Repository
         public UserRepository(DatabaseContext context)
         {
             _context = context;
-            var user = new User("admin", "123", "Toni", "Pulkkinen", "esimerkki@jotain.com");
+            var user = new User("admin", "admin", "Toni", "Pulkkinen", "esimerkki@jotain.com");
             if (FindByUsername(user.Username) == null)
             {
                 _context.User.Add(user);
@@ -31,7 +31,7 @@ namespace contacts_app_server.Repository
 
         public User FindByUsernameAndPassword(string username, string password)
         {
-            return _context.User.FirstOrDefault(u => u.Username == username && u.Username == password);
+            return _context.User.FirstOrDefault(u => u.Username == username && u.Password == password);
         }
 
         public void Add(User user)

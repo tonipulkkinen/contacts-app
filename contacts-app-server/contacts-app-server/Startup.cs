@@ -1,16 +1,17 @@
 ﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using contacts_app_server.Repository;
 using contacts_app_server.Services;
 using contacts_app_server.Config;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+
 
 namespace contacts_app_server
 {
@@ -72,7 +73,7 @@ namespace contacts_app_server
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            
 
             var context = app.ApplicationServices.GetService<DatabaseContext>();
             if (context.Database.EnsureCreated())
@@ -90,6 +91,8 @@ namespace contacts_app_server
                     ClockSkew = TimeSpan.FromMinutes(0)
                 }
             });
+
+            app.UseMvc();
         }
     }
 }
